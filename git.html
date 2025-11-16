@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Git SSH</title>
+  </head>
+  <body>
+    <h1>SSH</h1>
+    <a href="https://docs.github.com/ja/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent">新しい SSH キーを生成して ssh-agent に追加する</a>
+    <br />
+    <a href="https://docs.github.com/ja/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">GitHub アカウントへの新しい SSH キーの追加</a>
+    <h1>GPG</h1>
+    <a href="https://docs.github.com/ja/authentication/managing-commit-signature-verification/generating-a-new-gpg-key">新しい GPG キーを生成する</a>
+    <br />
+    <a href="https://docs.github.com/ja/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account">GitHub アカウントに GPG キーを追加する</a>
+    <h1>Git コマンド一</h1>
+    <h2>基本操作</h2>
+      <ul>
+        <li><code>git init</code> — 新しい Git リポジトリを作成する。</li>
+        <li><code>git clone &lt;URL&gt;</code> — リモートリポジトリをローカルにコピーする。</li>
+        <li><code>git status</code> — 現在の変更状況を確認する。</li>
+        <li><code>git add &lt;ファイル名&gt;</code> — 変更をステージに追加する。</li>
+        <li><code>git add .</code> — 全ての変更をステージに追加する。</li>
+        <li><code>git commit -m "メッセージ"</code> — ステージされた変更をコミットする。</li>
+        <li><code>git push</code> — ローカルのコミットをリモートへ送信する。</li>
+        <li><code>git pull</code> — リモートの変更を取得してマージする。</li>
+      </ul>
+
+      <h2>ブランチ操作</h2>
+      <ul>
+        <li><code>git branch</code> — ブランチ一覧を表示する。</li>
+        <li><code>git branch &lt;名前&gt;</code> — 新しいブランチを作成する。</li>
+        <li><code>git checkout &lt;ブランチ名&gt;</code> — 指定のブランチに切り替える。</li>
+        <li><code>git checkout -b &lt;名前&gt;</code> — 新ブランチを作成してそのまま切り替える。</li>
+        <li><code>git merge &lt;ブランチ名&gt;</code> — 指定ブランチを現在のブランチにマージする。</li>
+        <li><code>git branch -d &lt;名前&gt;</code> — ブランチを削除する。</li>
+      </ul>
+
+      <h2>履歴・差分</h2>
+      <ul>
+        <li><code>git log</code> — コミット履歴を表示する。</li>
+        <li><code>git log --oneline</code> — 簡易表示のコミット履歴。</li>
+        <li><code>git diff</code> — 変更内容を確認する。</li>
+        <li><code>git show &lt;コミットID&gt;</code> — 特定コミットの詳細を表示する。</li>
+      </ul>
+
+      <h2>リセット・修正</h2>
+      <ul>
+        <li><code>git reset --hard &lt;コミットID&gt;</code> — 指定のコミットまで履歴と作業状態を戻す。</li>
+        <li><code>git reset --soft &lt;コミットID&gt;</code> — コミットだけ巻き戻し、変更は残す。</li>
+        <li><code>git revert &lt;コミットID&gt;</code> — 特定コミットを打ち消す新しいコミットを作成する。</li>
+        <li><code>git restore &lt;ファイル&gt;</code> — 変更を元に戻す（Git 2.23 以降）。</li>
+      </ul>
+
+      <h2>リモート操作</h2>
+      <ul>
+        <li><code>git remote -v</code> — リモート一覧を表示。</li>
+        <li><code>git remote add origin &lt;URL&gt;</code> — リモートリポジトリを追加する。</li>
+        <li><code>git fetch</code> — リモートの変更を取得（マージはしない）。</li>
+      </ul>
+  </body>
+</html>
