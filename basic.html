@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>HTML基本タグ説明</title>
+  <style>
+    body { font-family: sans-serif; line-height: 1.7; padding: 20px; }
+    h2 { margin-top: 40px; }
+    code { background: #f2f2f2; padding: 3px 5px; border-radius: 4px; }
+    pre { background: #f8f8f8; padding: 15px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+<h1>HTML 基本タグまとめ（日本語説明）</h1>
+
+<p>Webページの構造を作成する上で必ず知っておきたい基本タグの説明とサンプルです。</p>
+
+<hr>
+
+<h2>1. <code>&lt;html&gt;</code> / <code>&lt;head&gt;</code> / <code>&lt;body&gt;</code></h2>
+<p>
+  HTML文書全体の構造を定義するタグです。  
+  <code>&lt;head&gt;</code> はメタ情報、<code>&lt;body&gt;</code> は画面に表示される内容を含みます。
+</p>
+
+<pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;ページタイトル&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    ここにページの内容
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<hr>
+
+<h2>2. 見出しタグ（<code>&lt;h1&gt; ～ &lt;h6&gt;</code>）</h2>
+<p>ページ内のタイトルやセクションを表します。数が小さいほど重要な見出し。</p>
+
+<pre><code>&lt;h1&gt;最も重要なタイトル&lt;/h1&gt;
+&lt;h2&gt;セクションタイトル&lt;/h2&gt;
+&lt;h3&gt;小さい見出し&lt;/h3&gt;
+</code></pre>
+
+<hr>
+
+<h2>3. 段落タグ（<code>&lt;p&gt;</code>）</h2>
+<p>文章を段落として表示します。</p>
+
+<pre><code>&lt;p&gt;これは段落の例です。&lt;/p&gt;</code></pre>
+
+<hr>
+
+<h2>4. リンク（<code>&lt;a&gt;</code>）</h2>
+<p>
+  別ページへのリンクを作ります。  
+  <code>href</code> 属性にURLを設定します。
+</p>
+
+<pre><code>&lt;a href="https://example.com"&gt;リンクを見る&lt;/a&gt;</code></pre>
+
+<hr>
+
+<h2>5. 画像（<code>&lt;img&gt;</code>）</h2>
+<p>
+  画像を表示します。  
+  <code>src</code> が画像の URL、<code>alt</code> が代替テキストです。
+</p>
+
+<pre><code>&lt;img src="image.jpg" alt="説明文" /&gt;</code></pre>
+
+<hr>
+
+<h2>6. リスト（<code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>）</h2>
+<p>
+  箇条書きを作成します。  
+  <code>&lt;ul&gt;</code> は順序なし、<code>&lt;ol&gt;</code> は番号付き。
+</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;リンゴ&lt;/li&gt;
+  &lt;li&gt;バナナ&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;ステップ1&lt;/li&gt;
+  &lt;li&gt;ステップ2&lt;/li&gt;
+&lt;/ol&gt;
+</code></pre>
+
+<hr>
+
+<h2>7. テキスト装飾（<code>&lt;strong&gt;</code> / <code>&lt;em&gt;</code> / <code>&lt;span&gt;</code>）</h2>
+
+<p><code>&lt;strong&gt;</code> は重要（太字）。</p>
+<p><code>&lt;em&gt;</code> は強調（斜体）。</p>
+<p><code>&lt;span&gt;</code> はインライン要素を包むための汎用タグ。</p>
+
+<pre><code>&lt;p&gt;これは &lt;strong&gt;重要&lt;/strong&gt; な文です。&lt;/p&gt;
+&lt;p&gt;これは &lt;em&gt;強調&lt;/em&gt; です。&lt;/p&gt;
+&lt;p&gt;&lt;span style="color: red;"&gt;赤文字&lt;/span&gt; の例。&lt;/p&gt;
+</code></pre>
+
+<hr>
+
+<h2>8. 区切り・コンテナ（<code>&lt;div&gt;</code> / <code>&lt;section&gt;</code> / <code>&lt;header&gt;</code> / <code>&lt;footer&gt;</code>）</h2>
+<p>
+  ページを構造化するためのタグ。  
+  <code>&lt;div&gt;</code> は汎用、<code>&lt;section&gt;</code> や <code>&lt;header&gt;</code> は意味を持つ構造タグ。
+</p>
+
+<pre><code>&lt;header&gt;ヘッダーエリア&lt;/header&gt;
+
+&lt;section&gt;
+  &lt;h2&gt;セクションタイトル&lt;/h2&gt;
+  &lt;p&gt;内容...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;footer&gt;フッター&lt;/footer&gt;
+</code></pre>
+
+<hr>
+
+<h2>9. 表（<code>&lt;table&gt;</code> / <code>&lt;tr&gt;</code> / <code>&lt;td&gt;</code> / <code>&lt;th&gt;</code>）</h2>
+
+<p>表形式データを表示します。</p>
+
+<pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;名前&lt;/th&gt;
+    &lt;th&gt;年齢&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;太郎&lt;/td&gt;
+    &lt;td&gt;20&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+<hr>
+
+<h2>10. フォーム（<code>&lt;form&gt;</code> / <code>&lt;input&gt;</code> / <code>&lt;textarea&gt;</code> / <code>&lt;button&gt;</code>）</h2>
+
+<p>ユーザー入力を受け取るためのタグ。</p>
+
+<pre><code>&lt;form action="/submit" method="post"&gt;
+  名前: &lt;input type="text" name="name" /&gt;&lt;br&gt;
+  コメント: &lt;textarea name="comment"&gt;&lt;/textarea&gt;&lt;br&gt;
+  &lt;button type="submit"&gt;送信&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+<hr>
+
+<p>yuemuse 2025</p>
+
+</body>
+</html>
