@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HTML セマンティック</title>
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Hiragino Kaku Gothic ProN",Meiryo,Arial;line-height:1.6;margin:24px;color:#111}
+    header,nav,main,section,article,aside,footer{display:block}
+    pre{background:#f6f8fa;padding:12px;border-radius:6px;overflow:auto}
+    code{background:#f3f4f6;padding:2px 4px;border-radius:4px}
+    h1,h2{margin-top:1.2rem}
+    .example{border-left:4px solid #ddd;padding:12px;margin:12px 0}
+    table{border-collapse:collapse;width:100%}
+    th,td{border:1px solid #e2e8f0;padding:8px;text-align:left}
+    aside.note{background:#fffbeb;padding:10px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HTML セマンティック</h1>
+    <p>このドキュメントは日本語で、主要なセマンティック（意味づけされた）HTML要素の説明、使い方、例、ベストプラクティスをまとめたものです。</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#landmarks">ランドマーク要素（header, nav, main, footer, aside）</a></li>
+        <li><a href="#sectioning">セクショニング要素（section, article）</a></li>
+        <li><a href="#textlevel">テキストレベルのセマンティクス（strong, em, mark, small, time, address）</a></li>
+        <li><a href="#media">メディアと補助要素（figure, figcaption, picture, img）</a></li>
+        <li><a href="#interactive">インタラクティブ（details, summary, dialog, progress, meter）</a></li>
+        <li><a href="#accessibility">アクセシビリティとSEOのポイント</a></li>
+        <li><a href="#cheatsheet">まとめ（チートシート）</a></li>
+      </ol>
+    </section>
+
+    <section id="landmarks">
+      <h2>ランドマーク要素</h2>
+      <p>ランドマーク要素はページ内で構造的に重要な領域を示します。支援技術（スクリーンリーダー等）はこれらを利用してページを把握します。</p>
+
+      <h3>&lt;header&gt;</h3>
+      <p>ページやセクションの導入部。ロゴや見出し、グローバルなナビゲーションを含めることが多い。</p>
+      <div class="example">
+        <pre><code>&lt;header&gt;
+  &lt;h1&gt;サイト名&lt;/h1&gt;
+  &lt;nav&gt;...&lt;/nav&gt;
+&lt;/header&gt;</code></pre>
+      </div>
+
+      <h3>&lt;nav&gt;</h3>
+      <p>ナビゲーション用のリンク集合。ページ内で複数のナビがある場合は、目的に応じて使い分ける（例：メインナビ、フッターナビ、サイドナビ）。</p>
+
+      <h3>&lt;main&gt;</h3>
+      <p>文書の主要なコンテンツ。ページごとに1つだけ使用する（複数は避ける）。</p>
+
+      <h3>&lt;aside&gt;</h3>
+      <p>主要コンテンツに対する補助的情報（サイドバー、関連リンク、広告など）。</p>
+
+      <h3>&lt;footer&gt;</h3>
+      <p>フッター領域。著作権情報、連絡先、二次的なナビゲーションなどを置く。</p>
+
+      <div class="example">
+        <pre><code>&lt;body&gt;
+  &lt;header&gt;...&lt;/header&gt;
+  &lt;main&gt;
+    &lt;article&gt;主要な記事&lt;/article&gt;
+    &lt;aside&gt;関連情報&lt;/aside&gt;
+  &lt;/main&gt;
+  &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+      </div>
+    </section>
+
+    <section id="sectioning">
+      <h2>セクショニング要素</h2>
+      <p>ドキュメントの論理的な区切りに使います。適切に使うと見出し階層（アウトライン）が明確になります。</p>
+
+      <h3>&lt;section&gt;</h3>
+      <p>トピックやテーマで区切られた一般的なセクション。通常は見出し（h1〜h6）を持つ。</p>
+
+      <h3>&lt;article&gt;</h3>
+      <p>独立して配布・再利用できるコンテンツ（ブログ投稿、ニュース記事、コメント等）。</p>
+
+      <h3>&lt;h1&gt;〜&lt;h6&gt;（見出し）</h3>
+      <p>見出しはコンテンツの階層を示す。HTML5では見出しはsectioningコンテキストに基づいてネストされる。</p>
+
+      <div class="example">
+        <pre><code>&lt;article&gt;
+  &lt;h2&gt;記事タイトル&lt;/h2&gt;
+  &lt;section&gt;
+    &lt;h3&gt;セクション見出し&lt;/h3&gt;
+    &lt;p&gt;本文...&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/article&gt;</code></pre>
+      </div>
+    </section>
+
+    <section id="textlevel">
+      <h2>テキストレベルのセマンティクス</h2>
+
+      <h3>&lt;strong&gt; と &lt;em&gt;</h3>
+      <p>&lt;strong&gt;は重要性を、&lt;em&gt;は強調を示します。スクリーンリーダーはそれぞれを異なる方法で読み上げることがあります。</p>
+
+      <h3>&lt;mark&gt;</h3>
+      <p>ハイライト（検索結果の該当箇所など）。</p>
+
+      <h3>&lt;small&gt;</h3>
+      <p>補足や小さな注記（著作権表示など）に使用。</p>
+
+      <h3>&lt;time&gt;</h3>
+      <p>日時を示す。datetime属性を付けると機械可読性が高まる。</p>
+      <div class="example">
+        <pre><code>&lt;time datetime="2025-11-19"&gt;2025年11月19日&lt;/time&gt;</code></pre>
+      </div>
+
+      <h3>&lt;address&gt;</h3>
+      <p>連絡先情報（著者や組織のコンタクト）。必ず連絡先に限定して使う。</p>
+    </section>
+
+    <section id="media">
+      <h2>メディアと補助要素</h2>
+
+      <h3>&lt;figure&gt; と &lt;figcaption&gt;</h3>
+      <p>図版（画像、図、コードスニペットのスクリーンショットなど）とそのキャプションをグループ化する。</p>
+      <div class="example">
+        <pre><code>&lt;figure&gt;
+  &lt;img src="example.jpg" alt="説明文" /&gt;
+  &lt;figcaption&gt;図1: 説明コメント&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+      </div>
+
+      <h3>&lt;img&gt; と alt 属性</h3>
+      <p>alt属性は必須。画像の意味を短く説明する。装飾的な画像は空文字（alt=""）にする。</p>
+    </section>
+
+    <section id="interactive">
+      <h2>インタラクティブ要素</h2>
+
+      <h3>&lt;details&gt; と &lt;summary&gt;</h3>
+      <p>折りたたみ可能な領域。アクセシビリティに配慮された簡易な開閉UIを提供する。</p>
+      <div class="example">
+        <pre><code>&lt;details&gt;
+  &lt;summary&gt;もっと読む&lt;/summary&gt;
+  &lt;p&gt;ここに隠された詳細情報&lt;/p&gt;
+&lt;/details&gt;</code></pre>
+      </div>
+
+      <h3>&lt;dialog&gt;</h3>
+      <p>モーダルダイアログ。ブラウザサポートを確認の上、必要に応じてフォールバックを用意する。</p>
+
+      <h3>&lt;progress&gt; と &lt;meter&gt;</h3>
+      <p>進捗や目盛りを表す要素。機械可読かつ視覚表現が標準化されている。</p>
+    </section>
+
+    <section id="accessibility">
+      <h2>アクセシビリティとSEOのポイント</h2>
+      <ul>
+        <li>意味のある要素を使うと、スクリーンリーダーや検索エンジンがコンテンツを正しく解釈しやすくなる。</li>
+        <li>&lt;main&gt;はページに一つだけ。&lt;header&gt;や&lt;footer&gt;はセクション単位にも使える。</li>
+        <li>見出しは順序を守る（h1→h2→h3...）。スタイリングで順序を壊してはいけない。</li>
+        <li>画像には必ず適切な alt を付ける。装飾画像は空の alt にする。</li>
+        <li>フォーム要素にはラベルを関連付ける（&lt;label for="..."&gt; または aria-label）。</li>
+        <li>ランドマークに role 属性を付ける必要は通常ないが、複雑なケースでは ARIA を補助的に使う。</li>
+      </ul>
+
+      <aside class="note">
+        <strong>注意：</strong>セマンティック要素は見た目を変えるものではなく、構造と意味を伝えるためのものです。CSSで自由に見た目を調整してください。
+      </aside>
+    </section>
+
+    <section id="cheatsheet">
+      <h2>チートシート（よく使う要素）</h2>
+      <table>
+        <thead>
+          <tr><th>要素</th><th>意味</th><th>使いどころ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>&lt;header&gt;</td><td>導入・ヘッダー</td><td>サイトヘッダ、セクションのヘッダ</td></tr>
+          <tr><td>&lt;nav&gt;</td><td>ナビゲーション</td><td>主要リンク集合</td></tr>
+          <tr><td>&lt;main&gt;</td><td>主要コンテンツ</td><td>ページの中心内容（1ページ1つ）</td></tr>
+          <tr><td>&lt;article&gt;</td><td>独立した記事</td><td>ブログ投稿、ニュース記事</td></tr>
+          <tr><td>&lt;section&gt;</td><td>セクション</td><td>トピックごとの区切り</td></tr>
+          <tr><td>&lt;aside&gt;</td><td>補助情報</td><td>サイドバー、関連情報</td></tr>
+          <tr><td>&lt;footer&gt;</td><td>フッター</td><td>著作権、補助ナビ</td></tr>
+          <tr><td>&lt;figure&gt;/&lt;figcaption&gt;</td><td>図とキャプション</td><td>画像＋説明</td></tr>
+          <tr><td>&lt;details&gt;/&lt;summary&gt;</td><td>折りたたみ</td><td>FAQなど</td></tr>
+        </tbody>
+      </table>
+
+      <h3>ベストプラクティスまとめ</h3>
+      <ol>
+        <li>意味に合った要素を使う（見た目だけでタグを選ばない）。</li>
+        <li>見出しの階層を自然に保つ。</li>
+        <li>アクセシビリティ（alt, label, roleの適切な利用）を忘れない。</li>
+        <li>マークアップはコンテンツの構造を説明することを優先する。</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>実践例：簡単なブログページ（サンプル）</h2>
+      <pre><code>&lt;!doctype html&gt;
+&lt;html lang="ja"&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;ミニブログ&lt;/h1&gt;
+    &lt;nav&gt;&lt;a href="/"&gt;ホーム&lt;/a&gt; | &lt;a href="/about"&gt;このサイトについて&lt;/a&gt;&lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;article&gt;
+      &lt;h2&gt;記事タイトル&lt;/h2&gt;
+      &lt;p&gt;投稿日：&lt;time datetime="2025-11-19"&gt;2025年11月19日&lt;/time&gt;&lt;/p&gt;
+      &lt;figure&gt;
+        &lt;img src="photo.jpg" alt="風景写真" /&gt;
+        &lt;figcaption&gt;自然の風景&lt;/figcaption&gt;
+      &lt;/figure&gt;
+      &lt;p&gt;本文の段落...&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;aside&gt;
+      &lt;h3&gt;サイドバー&lt;/h3&gt;
+      &lt;p&gt;プロフィールやリンク&lt;/p&gt;
+    &lt;/aside&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;&lt;small&gt;© 2025 例のサイト&lt;/small&gt;&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section>
+      <h2>参考：さらに学ぶためのキーワード</h2>
+      <ul>
+        <li>HTML5 outlines（アウトラインアルゴリズム）</li>
+        <li>ARIA roles とランドマーク（補助的に使用）</li>
+        <li>WCAG（アクセシビリティ基準）</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>yuemuse 2025</p>
+  </footer>
+</body>
+</html>
